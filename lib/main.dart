@@ -1,3 +1,5 @@
+
+import 'package:expenses/models/transaction.dart';
 import 'package:flutter/material.dart';
 
 main() => runApp(ExpensesApp());
@@ -14,6 +16,20 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+   final _transactions = [
+    Transaction(
+      id: 't1',
+      title: 'Tênis de corrida novo',
+      value: 250.70,
+      datetime: DateTime.now()
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Conta da Netflix',
+      value: 57.70,
+      datetime: DateTime.now()
+    )
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +38,66 @@ class MyHomePage extends StatelessWidget {
         title: Text('Despesas Pessoais'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
        children: <Widget>[
+         Container(
+           ),
          Card(
+           color: Colors.red,
            child: Text('Gráfico'),
+           elevation: 5,
          ),
-         Card(
-           child: Text('Lista de Transações'),
+         Column(
+           children: _transactions.map((tr) {
+             return Card(
+               child: Row(
+                 children: <Widget> [
+                   Container(
+                     margin: EdgeInsets.symmetric(
+                       horizontal: 15,
+                       vertical: 10
+                     ),
+                     decoration: BoxDecoration(
+                       border: Border.all(
+                         color: Colors.blue,
+                         width: 2,
+                         ),
+                       ),
+                     padding: EdgeInsets.all(10),
+                      child: Text(
+                        tr.value.toString(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 23,
+                          color: Colors.blue[900],
+                        ),
+                      ),
+                   ),
+                   Column( 
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                       children: <Widget> [
+                       Text(
+                         tr.title,
+                         style: TextStyle(
+                           fontSize: 16,
+                         fontWeight: FontWeight.bold,
+                       ),
+                         ),
+                       Text(
+                         (tr.datetime.toString()),
+                         style: TextStyle(
+                           fontSize: 16,
+                         fontWeight: FontWeight.bold,
+                         color: Colors.grey[600],
+                       ),
+                      ),   
+                     ],
+                   ),
+                 ],
+               ),
+             );
+           }).toList(),
          ),
        ],
       ),
