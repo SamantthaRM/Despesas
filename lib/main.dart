@@ -4,7 +4,7 @@ import 'dart:math';
 import 'components/transaction_form.dart';
 import 'components/transaction_list.dart';
 import 'models/transaction.dart';
-
+import 'dart:ui';
 main() => runApp(ExpensesApp());
 
 class ExpensesApp extends StatelessWidget {
@@ -13,7 +13,24 @@ class ExpensesApp extends StatelessWidget {
     return MaterialApp(
       home: MyHomePage(),
       theme: ThemeData(
-        primarySwatch: Colors.brown,
+        primarySwatch: Colors.blueGrey,
+        accentColor: Colors.lightGreenAccent[700],
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.dark().textTheme.copyWith(
+          headline6: TextStyle(
+             fontFamily: 'RobotoCondensed-BoldItalic',
+             fontSize: 18,
+             fontWeight: FontWeight.bold,
+          ),
+        ),
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+           headline6: TextStyle(
+             fontFamily: 'RobotoCondensed-BoldItalic',
+             fontSize: 27,
+           ),
+          ),
+        ),
       ),
     );
   }
@@ -84,7 +101,7 @@ _openTransactionFormModal(BuildContext context) {
             children: <Widget>[
               Container(
                 child: Card(
-                color: Colors.red,
+                color: Colors.lightGreenAccent[700],
                 child: Text('Gráfico'),
                 elevation: 5,
               ),
