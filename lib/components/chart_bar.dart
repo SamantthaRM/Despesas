@@ -16,15 +16,16 @@ class ChartBar  extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text('R\$${value!.toStringAsFixed(2)}'),
+        Text('R\$${value!.toStringAsFixed(2)}',style:TextStyle(color: Colors.black)),
         SizedBox(height: 5,),
           Container(
             height: 60,
             width: 10,
             child: null,
+
           ),
         SizedBox(height: 5),
-        Text(label!),
+        Text(label!,style:TextStyle(color: Colors.black)),
       ],   
     );
   }

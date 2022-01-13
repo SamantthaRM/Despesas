@@ -44,6 +44,7 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     groupedTransacitons;
     return Card(
+      color: Colors.white,
       elevation: 7,
       margin: EdgeInsets.all(20),
       child: Row(
