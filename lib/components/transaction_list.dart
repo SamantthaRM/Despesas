@@ -24,7 +24,7 @@ class TransactionList  extends StatelessWidget {
             style: Theme.of(context).textTheme.headline6,
           ),
           SizedBox(
-            height: 20,
+            height: 50,
           ),
           Container(
             height: 200,
