@@ -39,14 +39,15 @@ class Chart extends StatelessWidget {
   }
 
   double get _weekTotalValue {
-    return groupedTransacitons.fold()
+    return groupedTransacitons.fold(0.0,(sum, tr) {
+     return sum + (tr['value'] as double);
+    });
   }
 
 
   @override
 
   Widget build(BuildContext context) {
-    groupedTransacitons;
     return Card(
       color: Colors.white,
       elevation: 7,
@@ -56,7 +57,7 @@ class Chart extends StatelessWidget {
           return ChartBar(
             label: tr ['day'].toString(),
             value: tr ['value'] as double,
-            percentage: 0.5,
+            percentage: (tr['value'] as double)  / _weekTotalValue,
             );
            }).toList(),
       ),
