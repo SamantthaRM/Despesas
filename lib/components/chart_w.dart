@@ -52,14 +52,21 @@ class Chart extends StatelessWidget {
       color: Colors.white,
       elevation: 7,
       margin: EdgeInsets.all(20),
-      child: Row(
-        children: groupedTransacitons.map((tr) {
-          return ChartBar(
-            label: tr ['day'].toString(),
-            value: tr ['value'] as double,
-            percentage: (tr['value'] as double)  / _weekTotalValue,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: groupedTransacitons.map((tr) {
+            return Flexible(
+              fit: FlexFit.tight,
+              child: ChartBar(
+                label: tr ['day'].toString(),
+                value: tr ['value'] as double,
+                percentage: (tr['value'] as double)  / _weekTotalValue,
+                ),
             );
-           }).toList(),
+             }).toList(),
+        ),
       ),
     );
   }
