@@ -50,34 +50,42 @@ class _TransactionFormState extends State<TransactionForm> {
                         labelText: 'Valor(R\$)',
                       ),
                     ),
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          'Nenhuma data selecionada!',
-                          style: TextStyle(
-                            color: Colors.black,
-                        fontWeight: FontWeight.bold
-                          ),
-                        ),
-                        TextButton(
-                          child: Text(
-                            'Selecionar Data',
+                    Container(
+                      height: 70,
+                        child: Row(
+                        children: <Widget>[
+                          Text(
+                            'Nenhuma data selecionada!',
                             style: TextStyle(
                               color: Colors.black,
-                        fontWeight: FontWeight.bold
-                              ),
+                          fontWeight: FontWeight.bold
                             ),
-                          onPressed: () { },
-                        )
-                      ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(6),
+                            child: TextButton(
+                              child: FittedBox( 
+                              child: Text(
+                                'Selecionar Data',
+                                style: TextStyle(
+                                  color: Colors.blueGrey,
+                            fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              ),
+                              onPressed: () { },
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget> [
-                    TextButton(
+                    ElevatedButton(
                       child: Text('Nova Transação',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold
                         ),
                       ),
