@@ -107,7 +107,7 @@ _openTransactionFormModal(BuildContext context) {
     context:context, 
     builder: (_) {
       return TransactionForm(_addTransaction);
-      }
+      },
     );
 }
 
